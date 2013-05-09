@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SQLiteLibd.lib"
+				AdditionalDependencies="SQLite3d.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="../lib"
 				GenerateDebugInformation="true"
@@ -136,6 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="SQLite3.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="1"
@@ -188,7 +189,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\SQLiteLib\SQLite.h"
+				RelativePath="..\include\sqlite3.h"
 				>
 			</File>
 		</Filter>

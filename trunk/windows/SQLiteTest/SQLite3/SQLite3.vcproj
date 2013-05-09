@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="SQLiteLib"
-	ProjectGUID="{B5B7D3D7-412C-489D-94F9-C705C6935506}"
-	RootNamespace="SQLiteLib"
+	Name="SQLite3"
+	ProjectGUID="{C35E3F3B-61EE-46F7-A961-B5C4B9903160}"
+	RootNamespace="SQLite3"
 	Keyword="Win32Proj"
 	>
 	<Platforms>
@@ -20,7 +20,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
-			CharacterSet="1"
+			CharacterSet="2"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -46,7 +46,7 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="0"
-				ProgramDataBaseFileName="..\lib\SQLiteLibd.pdb"
+				ProgramDataBaseFileName="..\lib\SQLite3d.pdb"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\lib\SQLiteLibd.lib"
+				OutputFile="..\lib\SQLite3d.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -109,7 +109,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
-				ProgramDataBaseFileName="..\lib\SQLiteLib.pdb"
+				ProgramDataBaseFileName="..\lib\SQLite3.pdb"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
@@ -125,7 +125,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\lib\SQLiteLib.lib"
+				OutputFile="..\lib\SQLite3.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -153,7 +153,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\SQLite.cpp"
+				RelativePath=".\sqlite3.c"
 				>
 			</File>
 		</Filter>
@@ -163,11 +163,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\include\def.h"
-				>
-			</File>
-			<File
-				RelativePath=".\SQLite.h"
+				RelativePath="..\include\sqlite3.h"
 				>
 			</File>
 		</Filter>
