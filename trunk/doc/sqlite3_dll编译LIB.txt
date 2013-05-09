@@ -1,0 +1,38 @@
+WINDOWS VC
+1、在http://sqlite.org/download.html下载
+	sqlite-amalgamation-3071300.zip      解压得到：sqlite3.h  sqlite3ext.h  sqlite3.c
+	sqlite-shell-win32-x86-3071300.zip   解压得到： sqlite3.exe
+	sqlite-dll-win32-x86-3071300.zip        解压得到：sqlite3.def  sqlite3.dll
+2、使用vs2005新建WIN32 LIB项目，并同时把sqlite3.h sqlite3.c添加到工程中
+工程--》属性--》配置属性--》预编译头--》创建/使用预编译头（选择：不使用编译头）
+工程--》属性--》配置属性--》预处理器--》预处理器定义（添加：SQLITE_ENABLE_RTREE  和 SQLITE_ENABLE_COLUMN_METADATA）？？
+
+
+
+
+LINUX
+dll 及 lib （动态链接库及导入库）编译笔记
+第一种编译方式：
+sqlite3.h ,sqlite3.c,sqlite.def
+cl sqlite3.c /link /def:sqlite3.def /implib:sqlite3.lib /DLL /out:sqlite3.dll
+
+第二种编译方式：
+cl sqlite3.c /c
+link sqlite3.obj /dll /def:sqlite3.def /implib:sqlite3.lib
+
+第三种编译方式：
+lib /def: sqlite3.def
+
+（注意在使用动态链接方式时就不要在头文件中包含"#include " sqlite3.c"了，只包含"#include <sqlite3.h>即可）
+
+
+VC未验证方法！
+
+SQLite官方下载只提供给我们一个sqlite3.dll跟一个sqlite3.def文件，并没有提供用于VC++6.0的lib文件，可以利用sqlite3.def文件生成，步骤如下：
+1.将sqlite3.h（可从源码目录获得）拷贝到C:\Program Files\Microsoft Visual Studio\VC98\Include目录下，这时编译可通过，但链接错误，因为没有LIB文件
+2.启动一个命令行程序，进入VC的安装目录C:\Program Files\Microsoft Visual Studio\VC98\Bin，在这个目录下面有一个LIB.exe文件，使用它就能生成sqlite3.lib文件，将sqlite3.def文件放到相同目录，或者绝对路径也可以， 然后在命令行输入如下命令：
+LIB /MACHINE:IX86 /DEF:sqlite3.def
+该命令生成两个文件：sqlite3.lib和sqlite3.exp
+运行该命令时，如果提示找不到MSPDB60.DLL文件，可从其它目录拷贝至Bin目录下
+3.将生成的sqlite3.lib拷贝到Lib目录下,将sqlite3.dll拷贝到C:\WINNT\system32目录下
+5.将sqlite3.lib加入到工程链接中，Project->Settings,Link选项卡，Object/library modules最后添入sqlite3.lib这时以下程序便可通过编译链接并运行：
